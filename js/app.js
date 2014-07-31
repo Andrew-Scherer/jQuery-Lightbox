@@ -6,9 +6,10 @@
 
 var $overlay = $('<div id="overlay"></div>');
 var $image = $("<img>");
-var $caption = $("<alt>")
+var $caption = $("<p></p>");
 
-$overlay.append($image)
+$overlay.append($image);
+$overlay.append($caption);
 
 $("body").append($overlay);
 
@@ -21,16 +22,16 @@ $("#imageGallery a").click(function(event){
 //2.1 Show/fade-in the overlay after a click
   $overlay.fadeIn();
  //2.3 Get child alt attrivute and set the caption with it.
-$caption.fadeIn();
-});
-  
-  //2.1 Show/fade-in the overlay after a click
+var captionText = $(this).children("img").attr("alt");
+$caption.text(captionText).show();
+    
+  });
 
+//3. When overlay is clicked, hide and fadeout the overlay.
 $($overlay).click(function(){
 $overlay.fadeOut();
 
+
 });
 
-  //2.3 Get child alt attrivute and set the caption with it.
 
-//3. When overlay is clicked, hide and fadeout the overlay.
